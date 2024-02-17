@@ -5,30 +5,23 @@ const result = document.getElementById("result");
 
 const decimalToBinary = (input) => {
 
-   const inputs = [];
-   const quotients = [];  
-   const remainders = [];
+   let binary = "";
 
-   
-   while (input > 0)
+ 
+   if (input === 0)
    {
-    const quotient = Math.floor(input / 2);
-    const remainder  = input % 2 ;
-
-    inputs.push(input);
-    quotients.push(quotient);
-    remainders.push(remainder);
-
-    input = quotient;
-       
+    binary = "0";
    }
 
 
-   console.log("Inputs: ", inputs ); 
-   console.log("Quotients : ", quotients ); 
-   console.log("Remainders: ", remainders ); 
+   while (input > 0 )
+   {
+        input = Math.floor(input / 2);
+        binary = (input % 2) + binary;
+        
+   }
 
-   result.innerText = remainders.reverse().join('');
+   result.innerText = binary;
    
 
 
