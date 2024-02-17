@@ -5,24 +5,16 @@ const result = document.getElementById("result");
 
 const decimalToBinary = (input) => {
 
-   let binary = "";
-
- 
-   if (input === 0)
+   if (input === 0 || input ===1)   /// base case
    {
-    binary = "0";
+    return String(input);
    }
-
-
-   while (input > 0 )
-   {
-        input = Math.floor(input / 2);
-        binary = (input % 2) + binary;
-        
-   }
-
-   result.innerText = binary;
    
+   else   /// rec
+   {
+    
+    return decimalToBinary(Math.floor(input / 2))+(input % 2) ;
+   }
 
 
 }
@@ -40,7 +32,7 @@ const checkUserInput = () => {
 
     }
 
-    decimalToBinary(parseInt(numberInput.value));
+    result.textContent = decimalToBinary(parseInt(numberInput.value));
     numberInput.value = "";
 
 
